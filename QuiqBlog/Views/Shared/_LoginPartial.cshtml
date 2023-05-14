@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using QuiqBlog.Data.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User)) {
+    <li class="nav-item px-5 py-4">
+        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login"><h6>КНИГИ</h6></a>
+    </li>
+    <li class="nav-item px-5 py-4">
+        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login"><h6>КИНО</h6></a>
+    </li>
+    <li class="nav-item px-5 py-4">
+        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login"><h6>МУЗЫКА</h6></a>
+    </li>
+    <li class="nav-item px-5 py-4">
+        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login"><h6>ИГРЫ</h6></a>
+    </li>
+    <li class="nav-item px-3 py-4">
+        <a class="nav-link" asp-controller="Admin" asp-action="Index"><h7>Здравствуй, @((await UserManager.GetUserAsync(User)).FirstName)!</h7></a>
+    </li>
+    <li class="nav-item px-5 py-4">
+        <a class="nav-link" onclick="$('#LogoutForm').submit();" style="cursor: pointer;"><h6>Выйти</h6></a>
+        <form id="LogoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+        </form>
+    </li>
+} else {
+      <li class="nav-item px-5 py-4">
+        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login"><h6>КНИГИ</h6></a>
+    </li>
+    <li class="nav-item px-5 py-4">
+        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login"><h6>КИНО</h6></a>
+    </li>
+    <li class="nav-item px-5 py-4">
+        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login"><h6>МУЗЫКА</h6></a>
+    </li>
+    <li class="nav-item px-5 py-4">
+        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login"><h6>ИГРЫ</h6></a>
+    </li>
+    <li class="nav-item px-5 py-4">
+        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login"><h5>Авторизация</h5></a>
+    </li>
+}
