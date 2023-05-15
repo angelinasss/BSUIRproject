@@ -24,8 +24,17 @@ namespace QuiqBlog.Configuration {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(
+        name: "subscribe",
+        pattern: "subscribe/{authorId}",
+        defaults: new { controller = "Home", action = "Subscribe" });
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            endpoints.MapRazorPages();
             });
+
+
         }
     }
 }

@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuiqBlog.Data", "QuiqBlog.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuiqBlog.Service", "QuiqBlog.Service\QuiqBlog.Service.csproj", "{148E0D24-2691-46EC-B373-8913A664A8BA}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuiqBlog.DataTests", "..\..\Users\Angelina\Pictures\Camera Roll\QuiqBlog.DataTests\QuiqBlog.DataTests.csproj", "{0D30384F-3E12-4E59-B9CB-03264C990D7F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuiqBlogTests", "..\..\Users\Angelina\Pictures\Camera Roll\QuiqBlogTests2\QuiqBlogTests.csproj", "{71BA6674-61ED-4857-B11A-5C0DCD9530AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{148E0D24-2691-46EC-B373-8913A664A8BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{148E0D24-2691-46EC-B373-8913A664A8BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{148E0D24-2691-46EC-B373-8913A664A8BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D30384F-3E12-4E59-B9CB-03264C990D7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D30384F-3E12-4E59-B9CB-03264C990D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D30384F-3E12-4E59-B9CB-03264C990D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D30384F-3E12-4E59-B9CB-03264C990D7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71BA6674-61ED-4857-B11A-5C0DCD9530AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71BA6674-61ED-4857-B11A-5C0DCD9530AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71BA6674-61ED-4857-B11A-5C0DCD9530AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71BA6674-61ED-4857-B11A-5C0DCD9530AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

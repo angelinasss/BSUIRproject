@@ -1,8 +1,11 @@
-﻿using System;
+﻿using QuiqBlog.Data.Migrations;
+using System;
 using System.Collections.Generic;
 
-namespace QuiqBlog.Data.Models {
-    public class Comment {
+namespace QuiqBlog.Data.Models
+{
+    public class Comment
+    {
         public int Id { get; set; }
 
         public Post Post { get; set; }

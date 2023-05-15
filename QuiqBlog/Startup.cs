@@ -13,6 +13,7 @@ namespace QuiqBlog
 
         public IConfiguration Configuration { get; }
 
+
         public void ConfigureServices(IServiceCollection services) {
             services.AddDefaultServices(Configuration);
             services.AddCustomServices();
