@@ -9,7 +9,6 @@ namespace QuiqBlog.Configuration {
                 applicationBuilder.UseDatabaseErrorPage();
             } else {
                 applicationBuilder.UseDeveloperExceptionPage();
-                //applicationBuilder.UseExceptionHandler("/Home/Error");
                 applicationBuilder.UseHsts();
             }
             applicationBuilder.UseHttpsRedirection();

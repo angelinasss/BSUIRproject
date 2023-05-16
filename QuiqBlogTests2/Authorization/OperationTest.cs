@@ -1,4 +1,6 @@
-﻿using System.Security.Claims;
+﻿using System.Reflection;
+using System;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
@@ -36,7 +38,7 @@ namespace QuiqBlog.Authorization.Tests
             };
         }
 
-        [Fact]
+        [Test]
         public void Create_ShouldHaveCorrectName()
         {
             // Arrange
@@ -44,10 +46,10 @@ namespace QuiqBlog.Authorization.Tests
 
             // Assert
             Assert.IsNotNull(operation);
-            Assert.Equals("Create", operation.Name);
+            Assert.AreEqual("Create", operation.Name);
         }
 
-        [Fact]
+        [Test]
         public void Read_ShouldHaveCorrectName()
         {
             // Arrange
@@ -55,10 +57,10 @@ namespace QuiqBlog.Authorization.Tests
 
             // Assert
             Assert.IsNotNull(operation);
-            Assert.Equals("Read", operation.Name);
+            Assert.AreEqual("Read", operation.Name);
         }
 
-        [Fact]
+        [Test]
         public void Update_ShouldHaveCorrectName()
         {
             // Arrange
@@ -66,10 +68,10 @@ namespace QuiqBlog.Authorization.Tests
 
             // Assert
             Assert.IsNotNull(operation);
-            Assert.Equals("Update", operation.Name);
+            Assert.AreEqual("Update", operation.Name);
         }
 
-        [Fact]
+        [Test]
         public void Delete_ShouldHaveCorrectName()
         {
             // Arrange
@@ -77,7 +79,38 @@ namespace QuiqBlog.Authorization.Tests
 
             // Assert
             Assert.IsNotNull(operation);
-            Assert.Equals("Delete", operation.Name);
+            Assert.AreEqual("Delete", operation.Name);
+        }
+
+        [Test]
+        public void Operations_Create_ShouldHaveExpectedName()
+        {
+            Assert.AreEqual(nameof(Create), Operations.Create.Name);
+        }
+
+        private object Create()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test]
+        public void Operations_Create_ShouldBePublic()
+        {
+            var bindingFlags = BindingFlags.Public | BindingFlags.Static;
+            var createField = typeof(Operations).GetField("Create", bindingFlags);
+            Assert.IsNotNull(createField);
+        }
+        [Test]
+        public void PostAuthorizationHandler_ShouldRequireCreateAccessForCreateOperation()
+        {
+            var operation = Operations.Create;
+            var requirement = new OperationAuthorizationRequirement { Name = operation.Name };
+            var handler = new PostAuthorizationHandler();
+
+            var context = new AuthorizationHandlerContext(new[] { requirement }, null, null);
+            handler.HandleAsync(context).Wait();
+
+            Assert.IsFalse(context.HasSucceeded);
         }
     }
 } 

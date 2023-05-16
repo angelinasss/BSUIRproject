@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 namespace QuiqBlog.ViewComponents.Tests
 {
     [TestClass()]
-    public class AdminSideNavViewComponentTests
+    public class AdminTopNavViewComponentTests
     {
         [Test]
-        public async Task AdminSideNavViewComponent_ReturnsNonEmptyResult()
+        public async Task AdminTopNavViewComponent_ReturnsNonEmptyResult()
         {
             // Arrange
-            AdminSideNavViewComponent viewComponent = new AdminSideNavViewComponent();
+            AdminTopNavViewComponent viewComponent = new AdminTopNavViewComponent();
 
             // Act
             var result = await viewComponent.InvokeAsync();

@@ -8,6 +8,10 @@ namespace QuiqBlog.Authorization {
     public class PostAuthorizationHandler : AuthorizationHandler<OperationAuthorizationRequirement, Post> {
         private readonly UserManager<ApplicationUser> userManager;
 
+        public PostAuthorizationHandler()
+        {
+        }
+
         public PostAuthorizationHandler(UserManager<ApplicationUser> userManager) {
             this.userManager = userManager;
         }

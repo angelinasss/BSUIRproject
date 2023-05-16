@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Xunit;
 using Assert = NUnit.Framework.Assert;
 
 namespace QuiqBlog.Tests.Controllers

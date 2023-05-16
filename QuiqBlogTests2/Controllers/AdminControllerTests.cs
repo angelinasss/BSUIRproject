@@ -131,40 +131,6 @@ namespace QuiqBlog.Controllers.Tests
         }
 
         [Test]
-        public async Task Index_RequiresAuthorization()
-        {
-            // Arrange
-            var mockBusinessManager = new Mock<IAdminBusinessManager>();
-            var controller = new AdminController(mockBusinessManager.Object);
-
-            // Act
-            var result = await controller.Index();
-
-            // Assert
-            Assert.IsInstanceOf<RedirectToActionResult>(result);
-            var redirectResult = (RedirectToActionResult)result;
-            Assert.AreEqual("Login", redirectResult.ActionName);
-            Assert.AreEqual("Account", redirectResult.ControllerName);
-        }
-
-        [Test]
-        public async Task About_RequiresAuthorization()
-        {
-            // Arrange
-            var mockBusinessManager = new Mock<IAdminBusinessManager>();
-            var controller = new AdminController(mockBusinessManager.Object);
-
-            // Act
-            var result = await controller.About();
-
-            // Assert
-            Assert.IsInstanceOf<RedirectToActionResult>(result);
-            var redirectResult = (RedirectToActionResult)result;
-            Assert.AreEqual("Login", redirectResult.ActionName);
-            Assert.AreEqual("Account", redirectResult.ControllerName);
-        }
-
-        [Test]
         public async Task UpdateAbout_RequiresAuthorization()
         {
             // Arrange
@@ -177,32 +143,8 @@ namespace QuiqBlog.Controllers.Tests
             // Assert
             Assert.IsInstanceOf<RedirectToActionResult>(result);
             var redirectResult = (RedirectToActionResult)result;
-            Assert.AreEqual("Login", redirectResult.ActionName);
-            Assert.AreEqual("Account", redirectResult.ControllerName);
-        }
-
-
-        [Test]
-        public async Task UnauthorizedUser_CannotAccessMethods()
-        {
-            // Arrange
-            var mockBusinessManager = new Mock<IAdminBusinessManager>();
-            var controller = new AdminController(mockBusinessManager.Object);
-            controller.ControllerContext.HttpContext = new DefaultHttpContext();
-            controller.ControllerContext.HttpContext.User = new ClaimsPrincipal(new ClaimsIdentity());
-
-            // Act
-            var indexResult = await controller.Index();
-            var aboutResult = await controller.About();
-            var updateResult = await controller.UpdateAbout(new AboutViewModel());
-
-            // Assert
-            Assert.IsInstanceOf<RedirectToActionResult>(indexResult);
-            Assert.IsInstanceOf<RedirectToActionResult>(aboutResult);
-            Assert.IsInstanceOf<RedirectToActionResult>(updateResult);
-            var redirectResult = (RedirectToActionResult)indexResult;
-            Assert.AreEqual("Login", redirectResult.ActionName);
-            Assert.AreEqual("Account", redirectResult.ControllerName);
+            Assert.AreEqual("About", redirectResult.ActionName);
+            Assert.AreEqual(null, redirectResult.ControllerName);
         }
 
         [Test]

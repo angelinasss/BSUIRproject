@@ -15,6 +15,7 @@ using QuiqBlog.Service.Interfaces;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace QuiqBlog.Tests.BusinessManagers
 {
@@ -48,6 +49,7 @@ namespace QuiqBlog.Tests.BusinessManagers
             Assert.AreEqual(page, result.PageNumber);
         }
 
+       
         [Test]
         public async Task CreatePost_Returns_Post()
         {
@@ -100,50 +102,5 @@ namespace QuiqBlog.Tests.BusinessManagers
             Assert.IsInstanceOf<Comment>(result.Value);
             Assert.AreEqual(postViewModel.Comment.Content, result.Value.Content);
         }
-
-        //[Test]
-        //public async Task UpdatePost_Returns_ActionResult()
-        //{
-        //    // Arrange
-        //    var editViewModel = new EditViewModel
-        //    {
-        //        Post = new Post { Id = 1, Title = "Test Post", Content = "Test Content" }
-        //    };
-        //    var claimsPrincipal = new ClaimsPrincipal();
-        //    var postServiceMock = new Mock<IPostService>();
-        //    postServiceMock.Setup(p => p.GetPost(editViewModel.Post.Id)).Returns(new Post { Id = 1, Title = "Test Post", Content = "Test Content" });
-        //    var authorizationServiceMock = new Mock<IAuthorizationService>();
-        //    authorizationServiceMock.Setup(a => a.AuthorizeAsync(claimsPrincipal, It.IsAny<Post>(), Operations.Update)).ReturnsAsync(AuthorizationResult.Success());
-        //    var postBusinessManager = new PostBusinessManager(null, postServiceMock.Object, null, authorizationServiceMock.Object);
-
-        //    // Act
-        //    var result = await postBusinessManager.UpdatePost(editViewModel, claimsPrincipal);
-
-        //    // Assert
-        //    Assert.IsNotNull(result);
-        //    Assert.IsInstanceOf<ActionResult>(result);
-        //}
-
-        //[Test]
-        //public async Task GetPostViewModel_Returns_PostViewModel()
-        //{
-        //    // Arrange
-        //    int? id = 1;
-        //    var post = new Post { Id = 1, Title = "Test Post", Content = "Test Content", Published = true };
-        //    var claimsPrincipal = new ClaimsPrincipal();
-        //    var postServiceMock = new Mock<IPostService>();
-        //    postServiceMock.Setup(p => p.GetPost(id.Value)).Returns(post);
-        //    var authorizationServiceMock = new Mock<IAuthorizationService>();
-        //    authorizationServiceMock.Setup(a => a.AuthorizeAsync(claimsPrincipal, post, Operations.Read)).ReturnsAsync(AuthorizationResult.Success());
-        //    var postBusinessManager = new PostBusinessManager(null, postServiceMock.Object, null, authorizationServiceMock.Object);
-
-        //    // Act
-        //    var result = await postBusinessManager.GetPostViewModel(id, claimsPrincipal);
-
-        //    // Assert
-        //    Assert.IsNotNull(result);
-        //    Assert.IsInstanceOf<PostViewModel>(result);
-        //    Assert.AreEqual(post.Id, result);
-        //}
     }
 }
