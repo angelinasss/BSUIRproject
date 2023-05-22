@@ -42,6 +42,26 @@ namespace QuiqBlog.Controllers
             return View(postBusinessManager.GetIndexViewModel(searchString, page));
         }
 
+        public IActionResult BooksIndex(string searchString, int? page)
+        {
+            return View(postBusinessManager.GetIndexViewModel(searchString, page));
+        }
+
+        public IActionResult GamesIndex(string searchString, int? page)
+        {
+            return View(postBusinessManager.GetIndexViewModel(searchString, page));
+        }
+
+        public IActionResult FilmsIndex(string searchString, int? page)
+        {
+            return View(postBusinessManager.GetIndexViewModel(searchString, page));
+        }
+
+        public IActionResult MusicIndex(string searchString, int? page)
+        {
+            return View(postBusinessManager.GetIndexViewModel(searchString, page));
+        }
+
         public IActionResult Author(string authorId, string searchString, int? page)
         {
             var actionResult = homeBusinessManager.GetAuthorViewModel(authorId, searchString, page);

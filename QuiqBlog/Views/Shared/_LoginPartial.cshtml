@@ -5,16 +5,16 @@
 
 @if (SignInManager.IsSignedIn(User)) {
     <li class="nav-item px-5 py-4">
-        <a class="nav-link" asp-area="Identity" asp-page="/Post/Index"><h6>КНИГИ</h6></a>
+        <a class="nav-link" asp-controller="Home" asp-action="BooksIndex"><h6>КНИГИ</h6></a>
     </li>
     <li class="nav-item px-5 py-4">
-        <a class="nav-link" asp-area="Identity" asp-page="/Post/Index"><h6>КИНО</h6></a>
+        <a class="nav-link" asp-controller="Home" asp-action="FilmsIndex"><h6>КИНО</h6></a>
     </li>
     <li class="nav-item px-5 py-4">
-        <a class="nav-link" asp-area="Identity" asp-page="/Post/Index"><h6>МУЗЫКА</h6></a>
+        <a class="nav-link" asp-controller="Home" asp-action="MusicIndex"><h6>МУЗЫКА</h6></a>
     </li>
     <li class="nav-item px-5 py-4">
-        <a class="nav-link" asp-area="Identity" asp-page="/Post/Index"><h6>ИГРЫ</h6></a>
+        <a class="nav-link" asp-controller="Home" asp-action="GamesIndex"><h6>ИГРЫ</h6></a>
     </li>
     <li class="nav-item px-3 py-4">
         <a class="nav-link" asp-controller="Admin" asp-action="Index"><h7>Здравствуй, @((await UserManager.GetUserAsync(User)).FirstName)!</h7></a>
@@ -26,16 +26,16 @@
     </li>
 } else {
       <li class="nav-item px-5 py-4">
-        <a class="nav-link" asp-area="Identity" asp-page="/Post/Index"><h6>КНИГИ</h6></a>
+        <a class="nav-link" asp-controller="Home" asp-action="BooksIndex"><h6>КНИГИ</h6></a>
     </li>
     <li class="nav-item px-5 py-4">
-        <a class="nav-link" asp-area="Identity" asp-page="/Post/Index"><h6>КИНО</h6></a>
+        <a class="nav-link" asp-controller="Home" asp-action="FilmsIndex"><h6>КИНО</h6></a>
     </li>
     <li class="nav-item px-5 py-4">
-        <a class="nav-link" asp-area="Identity" asp-page="/Post/Index"><h6>МУЗЫКА</h6></a>
+        <a class="nav-link" asp-controller="Home" asp-action="MusicIndex"><h6>МУЗЫКА</h6></a>
     </li>
     <li class="nav-item px-5 py-4">
-        <a class="nav-link" asp-area="Identity" asp-page="/Post/Index"><h6>ИГРЫ</h6></a>
+        <a class="nav-link" asp-controller="Home" asp-action="GamesIndex"><h6>ИГРЫ</h6></a>
     </li>
     <li class="nav-item px-5 py-4">
         <a class="nav-link" asp-area="Identity" asp-page="/Account/Login"><h5>Авторизация</h5></a>

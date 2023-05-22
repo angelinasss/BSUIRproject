@@ -1,12 +1,33 @@
-﻿<header class="masthead">
+﻿@if (!(Context.Request.Path.StartsWithSegments("/Home/BooksIndex") || 
+       Context.Request.Path.StartsWithSegments("/Home/GamesIndex") ||
+       Context.Request.Path.StartsWithSegments("/Home/FilmsIndex") ||
+       Context.Request.Path.StartsWithSegments("/Home/MusicIndex")
+))
+{
+<header class="masthead">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <div class="site-heading">
+                <div class="col-lg-8 col-md-10 mx-auto" style="height: 350px;">
+                    <div class="site-heading" style="margin-top: -30px;">
                     <h1>В ФОКУСЕ!</h1>
                 </div>
             </div>
         </div>
     </div>
 </header>
+}
+else {
+        <header class="masthead">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto" style="height: 100px;">
+                    <div class="site-heading">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+}
