@@ -22,81 +22,81 @@ namespace QuiqBlog.Data {
             base.OnModelCreating(builder);
 
             builder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+            {
+                b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    .WithMany()
+                    .HasForeignKey("RoleId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
             });
 
             builder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-                {
-                    b.HasOne("QuiqBlog.Data.Models.ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+            {
+                b.HasOne("QuiqBlog.Data.Models.ApplicationUser", null)
+                    .WithMany()
+                    .HasForeignKey("UserId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
             });
 
             builder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
             {
-                    b.HasOne("QuiqBlog.Data.Models.ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                b.HasOne("QuiqBlog.Data.Models.ApplicationUser", null)
+                    .WithMany()
+                    .HasForeignKey("UserId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
             });
 
             builder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
             {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("QuiqBlog.Data.Models.ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    .WithMany()
+                    .HasForeignKey("RoleId")
+                    .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired();
+
+                b.HasOne("QuiqBlog.Data.Models.ApplicationUser", null)
+                    .WithMany()
+                    .HasForeignKey("UserId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired();
             });
 
             builder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
             {
-                    b.HasOne("QuiqBlog.Data.Models.ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                b.HasOne("QuiqBlog.Data.Models.ApplicationUser", null)
+                    .WithMany()
+                    .HasForeignKey("UserId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
             });
 
             builder.Entity("QuiqBlog.Data.Models.Comment", b =>
             {
-                    b.HasOne("QuiqBlog.Data.Models.ApplicationUser", "Author")
-                        .WithMany()
-                        .HasForeignKey("AuthorId");
+                b.HasOne("QuiqBlog.Data.Models.ApplicationUser", "Author")
+                    .WithMany()
+                    .HasForeignKey("AuthorId");
 
-                    b.HasOne("QuiqBlog.Data.Models.Comment", "Parent")
-                        .WithMany("Comments")
-                        .HasForeignKey("ParentId");
+                b.HasOne("QuiqBlog.Data.Models.Comment", "Parent")
+                    .WithMany("Comments")
+                    .HasForeignKey("ParentId");
 
-                    b.HasOne("QuiqBlog.Data.Models.Post", "Post")
-                        .WithMany("Comments")
-                        .HasForeignKey("PostId");
+                b.HasOne("QuiqBlog.Data.Models.Post", "Post")
+                    .WithMany("Comments")
+                    .HasForeignKey("PostId");
             });
 
             builder.Entity("QuiqBlog.Data.Models.Post", b =>
             {
-                    b.HasOne("QuiqBlog.Data.Models.ApplicationUser", "Approver")
-                        .WithMany()
-                        .HasForeignKey("ApproverId");
+                b.HasOne("QuiqBlog.Data.Models.ApplicationUser", "Approver")
+                    .WithMany()
+                    .HasForeignKey("ApproverId");
 
-                    b.HasOne("QuiqBlog.Data.Models.ApplicationUser", "Creator")
-                        .WithMany()
-                        .HasForeignKey("CreatorId");
-            });        
+                b.HasOne("QuiqBlog.Data.Models.ApplicationUser", "Creator")
+                    .WithMany()
+                    .HasForeignKey("CreatorId");
+            });
         }
     }
 }

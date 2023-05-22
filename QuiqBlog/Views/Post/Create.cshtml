@@ -8,14 +8,14 @@
                 <form asp-controller="Post" asp-action="Add" method="post" enctype="multipart/form-data">
                     <div class="card-header">
                         <i class="fas fa-pen-fancy mr-1"></i>
-                        Write a Post
+                        Написать пост
                     </div>
                     <div class="card-body">
                         <div class="form-group">
                             <label asp-for="HeaderImage"></label>
                             <div class="custom-file">
                                 <input asp-for="HeaderImage" class="custom-file-input" accept="image/*" required />
-                                <label class="custom-file-label">Choose file</label>
+                                <label class="custom-file-label">Выбрать файл</label>
                             </div>
                             <span asp-validation-for="HeaderImage" class="text-danger"></span>
                         </div>
@@ -32,14 +32,14 @@
                     </div>
                     <div class="card-footer">
                         <div class="form-group">
-                            <p class="text-muted">Publish now or save for later edits.</p>
-                            <label>Publish now?</label>
+                            <p class="text-muted">Опубликуйте сейчас или сохраните для последующих правок.</p>
+                            <label>Опубликовать сейчас?</label>
                             <input type="checkbox" data-toggle="toggle" asp-for="Post.Published">
                             </br>
-                            <button class="btn btn-primary" type="submit">Submit</button>
+                            <button class="btn btn-primary" type="submit">Предоставить на рассмотрение</button>
                         </div>
-                        <p style="color: orangered; margin-bottom: 0;">Please Note:</p>
-                        <p>Your post will need to be approved before it is published to the main page. Please feel free to email me to approve your post.</p>
+                        <p style="color: orangered; margin-bottom: 0;">Пожалуйста, обратите внимание:</p>
+                        <p>Ваш пост должен быть одобрен, прежде чем он будет опубликован на главной странице. Пожалуйста, не стесняйтесь, напишите нам, чтобы утвердить вашу публикацию.</p>
                     </div>
                 </form>
             </div>
