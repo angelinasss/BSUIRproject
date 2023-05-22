@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using QuiqBlog.Data;
 using QuiqBlog.Data.Models;
+using QuiqBlog.Models;
 using QuiqBlog.Service.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,5 +67,7 @@ namespace QuiqBlog.Service {
             await applicationDbContext.SaveChangesAsync();
             return post;
         }
+
+        public IEnumerable<Category> GetCategories() => applicationDbContext.Categories.ToList();
     }
 }

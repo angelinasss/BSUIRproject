@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Emit;
+using QuiqBlog.Models;
 
 namespace QuiqBlog.Data {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser> {
@@ -16,10 +17,13 @@ namespace QuiqBlog.Data {
         public DbSet<Like> Likes { get; set; }
         public DbSet<Subscription> Subscriptions { get; set; }
         public DbSet<Subscriber> Subscribers { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<Post>().HasOne(p => p.Category).WithMany(c => c.Posts).HasForeignKey(p => p.CategoryId).OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
             {

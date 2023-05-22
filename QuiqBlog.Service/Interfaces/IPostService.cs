@@ -1,4 +1,5 @@
 ﻿using QuiqBlog.Data.Models;
+using QuiqBlog.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,5 +12,6 @@ namespace QuiqBlog.Service.Interfaces {
         Task<Post> Add(Post post);
         Task<Comment> Add(Comment comment);
         Task<Post> Update(Post post);
+        IEnumerable<Category> GetCategories();
     }
 }

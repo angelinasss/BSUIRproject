@@ -33,7 +33,11 @@ namespace QuiqBlog.Controllers {
         }
 
         public IActionResult Create() {
-            return View(new CreateViewModel());
+            var model = new CreateViewModel
+            {
+                Categories = postBusinessManager.GetCategories()
+            };
+            return View(model);
         }
 
         public async Task<IActionResult> Edit(int? id) {

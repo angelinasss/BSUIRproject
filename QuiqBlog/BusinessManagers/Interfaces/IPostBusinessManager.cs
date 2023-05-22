@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuiqBlog.Data.Models;
+using QuiqBlog.Models;
 using QuiqBlog.Models.HomeViewModels;
 using QuiqBlog.Models.PostViewModels;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -13,5 +15,6 @@ namespace QuiqBlog.BusinessManagers.Interfaces {
         Task<ActionResult<Comment>> CreateComment(PostViewModel postViewModel, ClaimsPrincipal claimsPrincipal);
         Task<ActionResult<EditViewModel>> UpdatePost(EditViewModel editViewModel, ClaimsPrincipal claimsPrincipal);
         Task<ActionResult<EditViewModel>> GetEditViewModel(int? id, ClaimsPrincipal claimsPrincipal);
+        IEnumerable<Category> GetCategories();
     }
 }

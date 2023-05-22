@@ -23,6 +23,8 @@ namespace QuiqBlog.Data.Models {
 
         public int LikesCount { get; set; }
         public int DislikesCount { get; set; }
+        public Category Category { get; set; }
+        public int CategoryId { get; set; }
 
     }
 }

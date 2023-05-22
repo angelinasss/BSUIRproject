@@ -304,6 +304,9 @@ namespace QuiqBlog.Data.Migrations
                     b.Property<string>("ApproverId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("CategoryId")
+                     .HasColumnType("int");
+
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -338,6 +341,24 @@ namespace QuiqBlog.Data.Migrations
 
                     b.ToTable("Posts");
                 });
+
+            modelBuilder.Entity("QuiqBlog.Models.Category", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int")
+                    .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                b.Property<string>("Description")
+                    .HasColumnType("nvarchar(max)");
+
+                b.Property<string>("Title")
+                    .HasColumnType("nvarchar(max)");
+
+                b.HasKey("Id");
+
+                b.ToTable("Categories");
+            });
 
             modelBuilder.Entity("QuiqBlog.Data.Models.Subscriber", b =>
                 {
@@ -443,6 +464,12 @@ namespace QuiqBlog.Data.Migrations
                     b.HasOne("QuiqBlog.Data.Models.ApplicationUser", "Approver")
                         .WithMany()
                         .HasForeignKey("ApproverId");
+
+                    b.HasOne("QuiqBlog.Models.Category", "Category")
+                       .WithMany("Posts")
+                       .HasForeignKey("CategoryId")
+                       .OnDelete(DeleteBehavior.NoAction)
+                       .IsRequired();
 
                     b.HasOne("QuiqBlog.Data.Models.ApplicationUser", "Creator")
                         .WithMany()
