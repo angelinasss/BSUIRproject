@@ -13,5 +13,7 @@ namespace QuiqBlog.Service.Interfaces {
         Task<Comment> Add(Comment comment);
         Task<Post> Update(Post post);
         IEnumerable<Category> GetCategories();
+
+        IEnumerable<PostType> GetPostTypes();
     }
 }

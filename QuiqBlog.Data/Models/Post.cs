@@ -1,6 +1,7 @@
 ﻿using QuiqBlog.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace QuiqBlog.Data.Models {
@@ -23,8 +24,13 @@ namespace QuiqBlog.Data.Models {
 
         public int LikesCount { get; set; }
         public int DislikesCount { get; set; }
+        [DisplayName("Категория")]
         public Category Category { get; set; }
         public int CategoryId { get; set; }
+
+        [DisplayName("Тип поста")]
+        public PostType PostType { get; set; }
+        public int PostTypeId { get; set; }
 
     }
 }

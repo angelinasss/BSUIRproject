@@ -2,8 +2,8 @@
 @using PagedList.Core.Mvc
 
 <div class="container">
-    <form asp-controller="Home" asp-action="Index" class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <div class="input-group mb-3">
+    <form asp-controller="Home" asp-action="BooksIndex" class="d-none d-md-inline-block form-inline mr-0 mr-md-3 my-2 my-md-0">
+        <div class="input-group mb-5 ml-auto">
             <input asp-for="SearchString" type="text" class="form-control" placeholder="Поиск..." />
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" style="padding: 0 10px 0 10px">Поиск</button>
@@ -13,16 +13,16 @@
     <div class="row align-content-center">
         @foreach (var post in Model.Posts.Where(p => p.CategoryId == 3))
         {
-                <div class="col-lg-4 col-md-3 mb-4">
-                    <div class="card border-0 shadow">
-                        <img src="~/UserFiles/Posts/@post.Id/HeaderImage.jpg" class="card-img-top">
-                        <div class="card-body">
-                            <div class="row text-center" style="margin: 0px auto 10px 0px;">
-                                <h5 class="card-title text-center w-100"><a asp-controller="Post" asp-action="Index" asp-route-id="@post.Id">@post.Title</a></h5>
-                            </div>
+            <div class="col-lg-4 col-md-3 mb-4">
+                <div class="card border-0 shadow">
+                    <img src="~/UserFiles/Posts/@post.Id/HeaderImage.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <div class="row text-center" style="margin: 0px auto 10px 0px;">
+                            <h5 class="card-title text-center w-100"><a asp-controller="Post" asp-action="Index" asp-route-id="@post.Id">@post.Title</a></h5>
                         </div>
                     </div>
                 </div>
+            </div>
         }
     </div>
 </div>

@@ -47,7 +47,7 @@ namespace QuiqBlog.BusinessManagers
 
             return new IndexViewModel
             {
-                Posts = new StaticPagedList<Post>(posts/*.Where(p => p.CategoryId == 2)*/.Skip((pageNumber - 1) * pageSize).Take(pageSize), pageNumber, pageSize, posts.Count()),
+                Posts = new StaticPagedList<Post>(posts.Skip((pageNumber - 1) * pageSize).Take(pageSize), pageNumber, pageSize, posts.Count()),
                 SearchString = searchString,
                 PageNumber = pageNumber
             };
@@ -199,5 +199,6 @@ namespace QuiqBlog.BusinessManagers
             }
         }
         public IEnumerable<Category> GetCategories() => postService.GetCategories();
+        public IEnumerable<PostType> GetPostTypes() => postService.GetPostTypes();
     }
 }

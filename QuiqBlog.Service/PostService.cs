@@ -69,5 +69,6 @@ namespace QuiqBlog.Service {
         }
 
         public IEnumerable<Category> GetCategories() => applicationDbContext.Categories.ToList();
+        public IEnumerable<PostType> GetPostTypes() => applicationDbContext.PostTypes.ToList();
     }
 }

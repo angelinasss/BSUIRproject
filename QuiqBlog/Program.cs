@@ -18,6 +18,7 @@ namespace QuiqBlog
                 {
                     var context = services.GetRequiredService<ApplicationDbContext>();
                     CategoryInitialize.Initialize(context);
+                    PostTypeInitialize.Initialize(context);
                 }
                 catch (Exception ex)
                 {

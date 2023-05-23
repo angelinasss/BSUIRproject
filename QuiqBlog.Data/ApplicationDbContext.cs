@@ -6,6 +6,8 @@ using QuiqBlog.Models;
 
 namespace QuiqBlog.Data {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser> {
+        public object UserSubscriptions;
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -18,6 +20,7 @@ namespace QuiqBlog.Data {
         public DbSet<Subscription> Subscriptions { get; set; }
         public DbSet<Subscriber> Subscribers { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<PostType> PostTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

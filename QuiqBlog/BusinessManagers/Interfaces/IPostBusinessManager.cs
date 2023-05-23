@@ -16,5 +16,6 @@ namespace QuiqBlog.BusinessManagers.Interfaces {
         Task<ActionResult<EditViewModel>> UpdatePost(EditViewModel editViewModel, ClaimsPrincipal claimsPrincipal);
         Task<ActionResult<EditViewModel>> GetEditViewModel(int? id, ClaimsPrincipal claimsPrincipal);
         IEnumerable<Category> GetCategories();
+        IEnumerable<PostType> GetPostTypes();
     }
 }

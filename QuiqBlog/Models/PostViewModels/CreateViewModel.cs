@@ -11,5 +11,6 @@ namespace QuiqBlog.Models.PostViewModels
         public IFormFile HeaderImage { get; set; }
         public Post Post { get; set; }
         public IEnumerable<Category> Categories { get; set; }
+        public IEnumerable<PostType> PostTypes { get; set; }
     }
 }

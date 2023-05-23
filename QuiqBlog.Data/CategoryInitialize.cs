@@ -15,22 +15,22 @@ namespace QuiqBlog.Data
                 context.Categories.AddRange(
                     new Category
                     {
-                        Title = "Music",
+                        Title = "Музыка",
                         Description = "Something about new sounds"
                     },
                     new Category
                     {
-                        Title = "Films",
+                        Title = "Фильмы",
                         Description = "Everything about films"
                     },
                     new Category
                     {
-                        Title = "Books",
+                        Title = "Книги",
                         Description = "Oh, you seem to be an avid reader"
                     },
                     new Category
                     {
-                        Title = "Games",
+                        Title = "Игры",
                         Description = "Everything about the world of gaming"
                     }
 

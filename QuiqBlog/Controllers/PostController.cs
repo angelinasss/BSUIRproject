@@ -35,7 +35,8 @@ namespace QuiqBlog.Controllers {
         public IActionResult Create() {
             var model = new CreateViewModel
             {
-                Categories = postBusinessManager.GetCategories()
+                Categories = postBusinessManager.GetCategories(),
+                PostTypes = postBusinessManager.GetPostTypes()
             };
             return View(model);
         }
